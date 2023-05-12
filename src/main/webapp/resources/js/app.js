@@ -164,6 +164,64 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      if (this.$step.innerText === "5") {
+        // zmienne
+        let vInstitution = " ";
+        let vQuantity = 0;
+        let vWhat = " ";
+        let vStreet = " ";
+        let vCity = " ";
+        let vZipCode = " ";
+        let vPickUpDate = " ";
+        let vPickUpTime = " ";
+        let vPickUpComment = " ";
+        // pobieranie wartości z form
+        for(let element of document.querySelector("form").elements) {
+          if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            if (element.type === "checkbox" && element.checked) {
+              vWhat += element.nextElementSibling.nextElementSibling.innerText+", ";
+              console.log(vQuantity+ " -"+ vWhat)
+            } else if (element.type === "radio" && element.checked) {
+              vInstitution = element.nextElementSibling.nextElementSibling.innerText;
+            } else if ((element.type !== "checkbox") && (element.type !== "radio"))
+            if (element.name === "quantity") {
+              vQuantity = element.value;
+            }
+            if (element.name === "street") {
+              vStreet = element.value;
+            }
+            if (element.name === "city") {
+              vCity = element.value;
+            }
+            if (element.name === "zipCode") {
+              vZipCode = element.value;
+            }
+            if (element.name === "pickUpDate") {
+              vPickUpDate = element.value;
+            }
+            if (element.name === "pickUpTime") {
+              vPickUpTime = element.value;
+            }
+            if (element.name === "pickUpComment") {
+              vPickUpComment = element.value;
+            }
+          }
+        }
+        // przypisywanie elementów
+        let vSummaryForm = document.querySelectorAll("div.form-section--column");
+        vSummaryForm[2].lastElementChild.firstElementChild.innerText = vStreet;
+        vSummaryForm[2].lastElementChild.firstElementChild.nextElementSibling.innerText = vCity;
+        vSummaryForm[2].lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText = vZipCode;
+        vSummaryForm[3].lastElementChild.firstElementChild.innerText= vPickUpDate;
+        vSummaryForm[3].lastElementChild.firstElementChild.nextElementSibling.innerText = vPickUpTime;
+        vSummaryForm[3].lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText = vPickUpComment;
+
+        vSummaryForm = document.querySelectorAll("div.form-section");
+        vSummaryForm[1].lastElementChild.firstElementChild.lastElementChild.innerText = vQuantity+ " -"+ vWhat;
+        vSummaryForm[1].lastElementChild.firstElementChild.nextElementSibling.lastElementChild.innerText = vInstitution;
+      }
+
+
     }
 
   }

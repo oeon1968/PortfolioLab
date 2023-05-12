@@ -105,42 +105,6 @@
               </c:forEach>
             </div>
 
-            <%--<div class="form-group form-group--checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  name="categories"
-                  value="clothes-useless"
-                />
-                <span class="checkbox"></span>
-                <span class="description">ubrania, do wyrzucenia</span>
-              </label>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="toys" />
-                <span class="checkbox"></span>
-                <span class="description">zabawki</span>
-              </label>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="books" />
-                <span class="checkbox"></span>
-                <span class="description">książki</span>
-              </label>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="other" />
-                <span class="checkbox"></span>
-                <span class="description">inne</span>
-              </label>
-            </div>--%>
-
             <div class="form-group form-group--buttons">
               <button type="button" class="btn next-step">Dalej</button>
             </div>
@@ -184,20 +148,6 @@
               </div>
             </c:forEach>
 
-            <%--<div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-              </label>
-            </div>
---%>
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
               <button type="button" class="btn next-step">Dalej</button>
@@ -224,11 +174,6 @@
                     Kod pocztowy <input type="text" name="zipCode" />
                   </label>
                 </div>
-                <%--<div class="form-group form-group--inline">
-                  <label>
-                    Numer telefonu <input type="phone" name="phone" />
-                  </label>
-                </div>--%>
               </div>
 
               <div class="form-section--column">
@@ -266,14 +211,14 @@
                   <li>
                     <span class="icon icon-bag"></span>
                     <span class="summary--text"
-                      >${Donation.quantity} worki ubrań w dobrym stanie dla dzieci</span
+                      >tutaj tekst "ile worków" </span
                     >
                   </li>
 
                   <li>
                     <span class="icon icon-hand"></span>
                     <span class="summary--text"
-                      >${Donation.institution.name}</span
+                      > tutaj tekst dla kogo </span
                     >
                   </li>
                 </ul>
