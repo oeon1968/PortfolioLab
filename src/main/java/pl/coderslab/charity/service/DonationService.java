@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class DonationService {
@@ -12,7 +14,8 @@ public class DonationService {
 
     //select
     public Long getQuantitiesSum() {
-        return dr.quantitiesSum();
+        Optional<Long> optQuantitySum = Optional.ofNullable(dr.quantitiesSum());
+        return optQuantitySum.orElse(0L);
     }
 
     public Long getDonationCount() {
@@ -21,7 +24,6 @@ public class DonationService {
 
     //insert and update
     public void insert(Donation donation) {
-        /* jak zostanie uzupełniona tabela donations_categories? */
         dr.save(donation);
     }
 

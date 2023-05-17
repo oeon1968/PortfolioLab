@@ -71,7 +71,6 @@
         </p>
 
         <ul class="help--slides-items">
-            Katastrofa??
             <c:forEach items="${institutions}" var="institution" varStatus="counter">
                 <c:if test="${counter.count%2==1}"> <li> </c:if>
                         <div class="col">
