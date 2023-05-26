@@ -84,27 +84,24 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
+        <%--@elvariable id="donation" type="java"--%>
         <form:form modelAttribute="donation" method="post">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
 
+            <c:forEach items="${categories}" var="category">
             <div class="form-group form-group--checkbox">
-              <c:forEach items="${categories}" var="category">
               <label>
-                <input
-                        type="checkbox"
-                        name="categories"
-                        value="${category.id}"
-                />
+                <form:checkbox path ="categories" value="${category}"/>
                 <span class="checkbox"></span>
-                <span class="description"
-                  >${category.name}</span
-                >
+                <span class="description">${category.name}</span>
               </label>
-              </c:forEach>
-            </div>
 
+               <%--      <form:checkboxes path="categories" items="${categories}"  itemLabel="name" itemValue="id"
+                                      cssClass="checkbox" />--%>
+            </div>
+            </c:forEach>
             <div class="form-group form-group--buttons">
               <button type="button" class="btn next-step">Dalej</button>
             </div>
@@ -117,7 +114,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <input type="number" name="quantity" step="1" min="1" />
+                <form:input path="quantity" type="number" step="1" min="1" />
               </label>
             </div>
 
@@ -136,7 +133,7 @@
             <c:forEach items="${institutions}" var="institution">
               <div class="form-group form-group--checkbox">
                  <label>
-                  <input type="radio" name="institution" value="${institution.id}" />
+                  <form:radiobutton path="institution" value="${institution}" />
                   <span class="checkbox radio"></span>
                   <span class="description">
                     <div class="title">${institution.name}</div>
@@ -162,16 +159,16 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="street" /> </label>
+                  <label> Ulica <form:input type="text" path="street" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Miasto <input type="text" name="city" /> </label>
+                  <label> Miasto <form:input type="text" path="city" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Kod pocztowy <input type="text" name="zipCode" />
+                    Kod pocztowy <form:input type="text" path="zipCode" title=""  />
                   </label>
                 </div>
               </div>
@@ -179,17 +176,17 @@
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <input type="date" name="pickUpDate" /> </label>
+                  <label> Data <form:input type="date" path="pickUpDate" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Godzina <input type="time" name="pickUpTime" /> </label>
+                  <label> Godzina <form:input type="time" path="pickUpTime" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <textarea name="pickUpComment" rows="5"></textarea>
+                    <form:textarea path="pickUpComment" rows="5"></form:textarea>
                   </label>
                 </div>
               </div>
